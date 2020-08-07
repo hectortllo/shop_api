@@ -43,3 +43,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #gems added by me
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'active_model_serializers', '~> 0.10.10'
+
+#Authentication
+gem 'devise-jwt'
