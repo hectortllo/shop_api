@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :product, only: [:index, :show, :create, :update]
+
   devise_for :users, skip: %i[registrations sessions passwords]
   devise_scope :user do
     post '/signup', to: 'registrations#create' # create a new user 
