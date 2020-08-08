@@ -3,7 +3,7 @@ class ProductController < ApplicationController
 
   # POST /product
   def create
-    @product = Product.create!(product_params)
+    @product = Product.where(available: true)
     render json: @product, status: :created
   end
 
@@ -28,6 +28,6 @@ class ProductController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :price, :quantity, :type_product_id, :presentation_product_id)
+    params.require(:product).permit(:name, :price, :quantity, :type_product_id, :presentation_product_id, :available)
   end
 end
