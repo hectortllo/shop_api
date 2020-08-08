@@ -46,3 +46,6 @@ gem 'active_model_serializers', '~> 0.10.10'
 
 #Authentication
 gem 'devise-jwt'
+
+#Authorization
+gem 'cancancan'
