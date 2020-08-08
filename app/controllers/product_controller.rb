@@ -3,26 +3,26 @@ class ProductController < ApplicationController
 
   # POST /product
   def create
-    @product = Product.where(available: true)
+    @product = Product.create!(product_params)
     render json: @product, status: :created
   end
-
-  # PUT /prouct/{id}
-  def update
-    @product = Product.find(params[:id])
-    @product.update!(product_params)
-    render json: @product, status: :ok
-  end
-
+  
   # GET /product
   def index
-    @products = Product.all
+    @products = Product.where(available: true)
     render json: @products, status: :ok
   end
 
   # GET /product/{id}
   def show
     @product = Product.find(params[:id])
+    render json: @product, status: :ok
+  end
+
+  # PUT /product/{id}
+  def update
+    @product = Product.find(params[:id])
+    @product.update!(product_params)
     render json: @product, status: :ok
   end
 
