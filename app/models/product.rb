@@ -3,4 +3,12 @@ class Product < ApplicationRecord
   belongs_to :presentation_product
   has_many :order_details
   has_many :orders, through: :order_details
+
+  def self.only_candies
+    where(type_product_id: 1)
+  end
+
+  def self.only_food
+    where(type_product_id: 2)
+  end
 end

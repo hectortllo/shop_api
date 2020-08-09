@@ -1,5 +1,6 @@
 class ProductController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource :only => [:index_candies, :index_food]
 
   # POST /product
   def create
@@ -11,6 +12,18 @@ class ProductController < ApplicationController
   def index
     @products = Product.where(available: true)
     render json: @products, status: :ok
+  end
+
+  # GET /candies
+  def index_candies
+    @candies_products = Product.only_candies
+    render json: @candies_products, status: :ok
+  end
+
+  # GET /food
+  def index_food
+    @food = Product.only_food
+    render json: @food, status: :ok
   end
 
   # GET /product/{id}
