@@ -4,6 +4,8 @@ class Product < ApplicationRecord
   has_many :order_details
   has_many :orders, through: :order_details
 
+  validates :name, :price, :quantity, :type_product_id, :presentation_product_id, presence: true
+
   def self.only_candies
     where(type_product_id: 1)
   end
