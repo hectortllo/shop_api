@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'candies', to: 'product#index_candies'
   get 'food', to: 'product#index_food'
 
+  resources :orders, only: [:index, :show, :create]
+  get 'orders/:email', to: 'orders#index_by_user'
+
   resources :type_product, only: [:index, :show, :create, :update]
   resources :presentation_product, only: [:index, :show, :create, :update]
 

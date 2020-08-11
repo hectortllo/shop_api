@@ -8,6 +8,8 @@ class Ability
     byebug
     if user.role == "admin"
       can :manage, :all
+    elsif user.present?
+      can [:manage], Order, user_id: user.id
     else
       can :read, Product
     end

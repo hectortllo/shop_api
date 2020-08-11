@@ -7,4 +7,8 @@ class Order < ApplicationRecord
                       numericality: { greater_than_or_equal_to: 0 }
   
   validates :user_id, presence: true
+
+  def set_total!
+    self.total = products.map(&:price).sum
+  end
 end
