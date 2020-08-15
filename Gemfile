@@ -43,9 +43,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #gems added by me
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'active_model_serializers', '~> 0.10.10'
+gem 'annotate', '~> 3.1', '>= 3.1.1'
 
 #Authentication
 gem 'devise-jwt'
 
 #Authorization
 gem 'cancancan'
+
+# gems for uploading images to s3
+gem 'carrierwave', '~> 2.1'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+gem 'carrierwave-aws', '~> 1.5'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'

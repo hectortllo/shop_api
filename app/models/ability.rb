@@ -6,12 +6,13 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     byebug
-    if user.role == "admin"
-      can :manage, :all
-    elsif user.present?
-      can [:manage], Order, user_id: user.id
-    else
-      can :read, Product
+    if user.present?
+      if user.role == 'admin'
+        can :manage, :all
+      elsif user.role == 'customer'
+        can [:manage], Order, user_id: user.id
+        can [:manage], Product
+      end
     end
 
     # The first argument to `can` is the action you are giving the user
